@@ -8,4 +8,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/InputName.unity
+    guid: b5093a9fe880f71489fb6fe6166a1283
+  - enabled: 1
+    path: Assets/Scenes/SelectStage.unity
+    guid: 1dfaeb1bcc67a2c4dba030c060307e42
+  - enabled: 1
+    path: Assets/Scenes/Ranking.unity
+    guid: d87382530ff95a141bbfa0206d2859d0
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: e162c1a5997e6b94a855ab89a1aee5e7
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 2f09703509f6c7e4db5f4c79e8191465
+  - enabled: 1
+    path: Assets/Scenes/Stage.unity
+    guid: 0c564c3c7357bf9479219e7cce2eb5e4
+  - enabled: 1
+    path: Assets/Scenes/Battle.unity
+    guid: cf368fa1156b840419de040afa8b253c
   m_configObjects: {}
