@@ -10,11 +10,16 @@ public class CreateAccountController : MonoBehaviour
 {
 	public InputField nameField;
 
-	private Text errorText;
+	public Text errorText;
 	private bool isCreateAccount;
 	private string customId;
 
 	private string playerName = "名無し";
+
+	void Start()
+	{
+		errorText.text = "";
+	}
 
 	/// <summary>
 	/// アカウント作成OKボタンのみ別仕様

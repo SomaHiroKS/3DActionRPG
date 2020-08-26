@@ -8,6 +8,13 @@
 	public static readonly string USER_NAME = "userName";
 	public static readonly string CUSTOM_ID_SAVE_KEY = "PLAYER_CUSTOM_ID_KEY";
 
+	/// <summary>
+	/// PlayFabにランキング要求するときのランキング名一覧
+	/// </summary>
+	/// <param name="SCORE_RANKING_NAME"> スコアのランキング </param>
+	public static readonly string SCORE_RANKING_NAME = "ScoreRanking";
+	public static readonly string STAGE_RANKING_NAME = "StageRanking";
+
 
 	/// <summary>
 	/// ユーザーIDを作成するための文字列
