@@ -49,4 +49,9 @@ public class TransitionController : MonoBehaviour
 	{
 		SceneManager.LoadScene("Settings");
 	}
+
+	public void onPressGoToStage()
+	{
+		SceneManager.LoadScene("Stage");
+	}
 }
