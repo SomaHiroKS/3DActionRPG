@@ -15,6 +15,18 @@
 	public static readonly string SCORE_RANKING_NAME = "ScoreRanking";
 	public static readonly string STAGE_RANKING_NAME = "StageRanking";
 
+	/// <summary>
+	/// ステージデータのパス一覧
+	/// </summary>
+	/// <param name="STAGE_1_PATH"> Stage1のデータの場所 </param>
+	public static readonly string STAGE_1_PATH = "/StageData/Stage1.csv";
+
+	/// <summary>
+	/// ステージ情報ID一覧
+	/// </summary>
+	public const int WALL_ID = 0;
+	public const int NONE_ID = 1;
+	public const int PLAYER_START_POS_ID = 2;
 
 	/// <summary>
 	/// ユーザーIDを作成するための文字列
