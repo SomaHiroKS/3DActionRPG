@@ -11,6 +11,8 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class TransitionController : MonoBehaviour
 {
+	AutoLoadScene autoLoad;
+
 	//BackTo～
 	public void onPressBackToStart()
 	{
@@ -26,17 +28,21 @@ public class TransitionController : MonoBehaviour
 
 	public void onPressGoToStageSelectOrInputName()
 	{
+		autoLoad = gameObject.GetComponent<AutoLoadScene>();
 		if (PlayerPrefs.HasKey(Define.USER_NAME))
 		{
-			SceneManager.LoadScene("SelectStage");
-			//ユーザーネームの確認
-			//Debug.Log(PlayerPrefs.GetString(Define.USER_NAME, "0"));
+			if(PlayerPrefs.HasKey(Define.SELECT_STAGE_FLAG))
+            {
+				autoLoad.BattleOrStageLoad();
+            }
+            else
+            {
+				SceneManager.LoadScene("SelectStage");
+            }
 		}
         else
         {
 			SceneManager.LoadScene("InputName");
-			//ユーザーネームの確認
-			//Debug.Log(PlayerPrefs.GetString(Define.USER_NAME, "0"));
 		}
 	}
 
@@ -53,5 +59,6 @@ public class TransitionController : MonoBehaviour
 	public void onPressGoToStage()
 	{
 		SceneManager.LoadScene("Stage");
+		PlayerPrefs.SetString(Define.SELECT_STAGE_FLAG,"Stage");
 	}
 }
