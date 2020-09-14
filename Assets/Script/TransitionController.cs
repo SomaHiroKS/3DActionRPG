@@ -32,16 +32,16 @@ public class TransitionController : MonoBehaviour
 		if (PlayerPrefs.HasKey(Define.USER_NAME))
 		{
 			if(PlayerPrefs.HasKey(Define.SELECT_STAGE_FLAG))
-            {
+			{
 				autoLoad.BattleOrStageLoad();
-            }
-            else
-            {
+			}
+			else
+			{
 				SceneManager.LoadScene("SelectStage");
-            }
+			}
 		}
-        else
-        {
+		else
+		{
 			SceneManager.LoadScene("InputName");
 		}
 	}
