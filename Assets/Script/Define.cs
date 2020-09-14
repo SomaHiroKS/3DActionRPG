@@ -5,8 +5,13 @@
 	/// </summary>
 	/// <param name="USER_NAME"> ユーザー名 </param>
 	/// <param name="CUSTOM_ID_SAVE_KEY"> サーバーに登録しているユーザーID</param>
+	/// /// <param name="ENEMY_TYPE">仮でおいている敵情報</param>
+	/// /// <param name="SELECT_STAGE_FLAG"> SelectStageを経由するかどうかのフラグ</param>
 	public static readonly string USER_NAME = "userName";
 	public static readonly string CUSTOM_ID_SAVE_KEY = "PLAYER_CUSTOM_ID_KEY";
+
+	public static string ENEMY_TYPE = "ENEMY_TYPE";
+	public static string SELECT_STAGE_FLAG = "SELECT_STAGE_FLAG";
 
 	/// <summary>
 	/// PlayFabにランキング要求するときのランキング名一覧
