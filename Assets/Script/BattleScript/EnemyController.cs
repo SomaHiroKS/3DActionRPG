@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     BattleSystem battleSystem;
+    CommandUIController commandUI;
     Act mode;
 
     public void Start()
     {
         battleSystem = gameObject.GetComponent<BattleSystem>();
+        commandUI = GameObject.Find("UIManager").GetComponent<CommandUIController>();
         //ModeCheck();
     }
 
@@ -30,15 +32,17 @@ public class EnemyController : MonoBehaviour
     public void EnemyAction()
     {
         battleSystem.Mode = Act.EnemyAct;
-        ModeCheck();
         GameObject.Find("Enemy").GetComponent<Renderer>().material.color = Color.yellow;
+        battleSystem.logText.Enqueue("EnemyAct\n");
+        ModeCheck();
     }
 
     public void EnemyActionFin()
     {
         battleSystem.Mode = Act.EnemyActFin;
-        ModeCheck();
         GameObject.Find("Enemy").GetComponent<Renderer>().material.color = Color.white;
+        battleSystem.logText.Enqueue("EnemyActFin\n");
+        ModeCheck();
         if (mode == Act.EnemyActFin)
         {
             battleSystem.Mode = Act.TurnEnd;
@@ -48,12 +52,30 @@ public class EnemyController : MonoBehaviour
         {
             battleSystem.Mode = Act.KeyInput;
             ModeCheck();
+            LogModeFin();
         }
+    }
+
+    public void LogModeFin()
+    {
+        commandUI.NormalMenuPanel.SetActive(true);
+        commandUI.AttackMenuPanel.SetActive(false);
+        commandUI.LogPanel.SetActive(false);
+        commandUI.LogButton.SetActive(true);
     }
 
     public void ModeCheck()
     {
+        if (battleSystem.logText.Count > 20)
+        {
+            string dequeue = battleSystem.logText.Dequeue();
+        }
         mode = battleSystem.Mode;
-        Debug.Log(battleSystem.Mode);
+        //Debug.Log(battleSystem.Mode);
+        battleSystem.log.text = "";
+        foreach (var item in battleSystem.logText)
+        {
+            battleSystem.log.text += item;
+        }
     }
 }

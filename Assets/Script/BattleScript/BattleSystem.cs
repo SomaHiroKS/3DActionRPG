@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleSystem: MonoBehaviour
 {
@@ -11,4 +12,8 @@ public class BattleSystem: MonoBehaviour
         get { return mode; }
         set { mode = value; }
     }
+
+    public Text log;
+
+    public Queue<string> logText = new Queue<string>();
 }
