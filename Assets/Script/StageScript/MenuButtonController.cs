@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MenuButtonController : MonoBehaviour
 {
-	[SerializeField]
-	GameObject menuWindow;
+	public GameObject menuWindow;
 	
 	/// <summary>
 	/// メニューボタンを押すとメニューウィンドウを表示させる

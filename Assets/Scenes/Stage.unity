@@ -1306,7 +1306,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c882dc2def913274493e92805851afeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageParentNode: {fileID: 1761660972}
   wallObj: {fileID: 6920508419171075769, guid: 161a9b0b185b1c045a393b1f3ee840bd, type: 3}
+  floorObj: {fileID: 7180774486610320639, guid: 5ec9f55f803b79a4382933e2b948b47a,
+    type: 3}
 --- !u!4 &1474852962
 Transform:
   m_ObjectHideFlags: 0
@@ -1566,6 +1569,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1761660972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761660973}
+  m_Layer: 0
+  m_Name: StageParentNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761660973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761660972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762643836
 GameObject:
   m_ObjectHideFlags: 0

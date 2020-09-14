@@ -7,10 +7,22 @@ using System.IO;
 public class CreateStage : MonoBehaviour
 {
 	/// <summary>
+	/// ステージの親オブジェクト
+	/// </summary>
+	[SerializeField]
+	public GameObject stageParentNode;
+
+	/// <summary>
 	/// 壁オブジェクト
 	/// </summary>
 	[SerializeField]
 	public GameObject wallObj;
+	
+	/// <summary>
+	/// 床オブジェクト
+	/// </summary>
+	[SerializeField]
+	public GameObject floorObj;
 
 	/// <summary>
 	/// Stage情報を持つ二次元配列
@@ -22,10 +34,7 @@ public class CreateStage : MonoBehaviour
 	void Start()
 	{
 		loadStage(Define.STAGE_1_PATH);
-
-		// test
-		Debug.Log("Height = " + stageHeight + ", Width = " + stageWidth);
-		Debug.Log(stageMapData[2, 7]); // 1
+		setFloor();
 	}
 
 	/// <summary>
@@ -81,6 +90,7 @@ public class CreateStage : MonoBehaviour
 				float zpos = ToWorldZ(z);
 				wall.transform.localScale = new Vector3(2, 2, 2);
 				wall.transform.position = new Vector3(xpos, 1, zpos);
+				wall.transform.parent = stageParentNode.transform;
 				break;
 			case Define.NONE_ID:
 				break;
@@ -89,6 +99,17 @@ public class CreateStage : MonoBehaviour
 			default:
 				break;
 		}
+	}
+
+	/// <summary>
+	/// 床オブジェクトであるPanelを横に伸ばし、中心点を求める
+	/// </summary>
+	void setFloor()
+	{
+		GameObject floorObjInstance = Instantiate(floorObj);
+		floorObjInstance.transform.localScale = new Vector3(stageWidth/5, 1, stageHeight/5);
+		floorObjInstance.transform.position = new Vector3(stageWidth - 1f, 0, stageHeight - 1f); // 誤差修正用に-1
+		floorObjInstance.transform.parent = stageParentNode.transform;
 	}
 
 	private float ToWorldX(int xgrid)
