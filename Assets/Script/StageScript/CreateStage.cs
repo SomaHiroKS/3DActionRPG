@@ -7,6 +7,12 @@ using System.IO;
 public class CreateStage : MonoBehaviour
 {
 	/// <summary>
+	/// Playerオブジェクト
+	/// </summary>
+	[SerializeField]
+	public GameObject player;
+
+	/// <summary>
 	/// ステージの親オブジェクト
 	/// </summary>
 	[SerializeField]
@@ -17,7 +23,7 @@ public class CreateStage : MonoBehaviour
 	/// </summary>
 	[SerializeField]
 	public GameObject wallObj;
-	
+
 	/// <summary>
 	/// 床オブジェクト
 	/// </summary>
@@ -82,12 +88,12 @@ public class CreateStage : MonoBehaviour
 	/// <param name="z">マップ配列でのz座標</param>
 	void createObj(int id, int x, int z)
 	{
+		float xpos = ToWorldX(x);
+		float zpos = ToWorldZ(z);
 		switch (id)
 		{
 			case Define.WALL_ID:
 				GameObject wall = Instantiate(wallObj);
-				float xpos = ToWorldX(x);
-				float zpos = ToWorldZ(z);
 				wall.transform.localScale = new Vector3(2, 2, 2);
 				wall.transform.position = new Vector3(xpos, 1, zpos);
 				wall.transform.parent = stageParentNode.transform;
@@ -95,6 +101,8 @@ public class CreateStage : MonoBehaviour
 			case Define.NONE_ID:
 				break;
 			case Define.PLAYER_START_POS_ID:
+				player.transform.localScale = Vector3.one; // (1,1,1)
+				player.transform.position = new Vector3(xpos, 0.5f, zpos);
 				break;
 			default:
 				break;
@@ -107,7 +115,7 @@ public class CreateStage : MonoBehaviour
 	void setFloor()
 	{
 		GameObject floorObjInstance = Instantiate(floorObj);
-		floorObjInstance.transform.localScale = new Vector3(stageWidth/5, 1, stageHeight/5);
+		floorObjInstance.transform.localScale = new Vector3(stageWidth / 5, 1, stageHeight / 5);
 		floorObjInstance.transform.position = new Vector3(stageWidth - 1f, 0, stageHeight - 1f); // 誤差修正用に-1
 		floorObjInstance.transform.parent = stageParentNode.transform;
 	}
